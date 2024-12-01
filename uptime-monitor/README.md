@@ -1,4 +1,4 @@
-# Empty Encore TS Template
+# Encore uptime monitor with Prisma (pub/sub)
 
 ## Developing locally
 
@@ -9,6 +9,7 @@ encore app create my-app-name --example=ts/empty
 ```
 
 ## Running locally
+
 ```bash
 encore run
 ```

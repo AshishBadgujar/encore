@@ -1,0 +1,41 @@
+type Query {
+  books: [Book] # Fetch all books
+  users: [User] # Fetch all users
+  getBookById(id: Int!): Book
+  getUserById(id: Int!): User
+}
+
+type Book {
+  id: Int # Unique ID of the book
+  title: String! # Title of the book
+  authorId: Int!
+  author: User # The author of the book (relationship to User)
+}
+
+type AddBookMutationResponse {
+  code: String! # Status code of the mutation
+  success: Boolean! # Whether the mutation was successful
+  message: String! # Message about the mutation's result
+  book: Book # The added book (if successful)
+}
+
+type Mutation {
+  addBook(title: String!, authorId: Int!): AddBookMutationResponse
+  deleteBook(id: Int!): AddBookMutationResponse
+  addUser(name: String!, surname: String!): AddUserMutationResponse
+  deleteUser(id: Int!): AddUserMutationResponse
+}
+
+type User {
+  id: Int # Unique ID of the user
+  name: String! # First name of the user
+  surname: String! # Last name of the user
+  books: [Book!] # List of books written by the user
+}
+
+type AddUserMutationResponse {
+  code: String! # Status code of the mutation
+  success: Boolean! # Whether the mutation was successful
+  message: String! # Message about the mutation's result
+  user: User # The added user (if successful)
+}

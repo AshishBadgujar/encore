@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Site {
+  id     Int     @id @default(autoincrement())
+  url    String  @unique
+  checks Check[] // Define the opposite relation field
+}
+
+model Check {
+  id        BigInt   @id @default(autoincrement())
+  siteId    Int
+  up        Boolean
+  checkedAt DateTime @db.Timestamp(6)
+
+  // Add a relation if there's a corresponding Site model
+  site Site @relation(fields: [siteId], references: [id])
+
+  @@index([siteId], map: "idx_checks_site_id") // Optional: Add an index for site_id if needed
+}

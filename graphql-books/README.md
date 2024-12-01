@@ -1,4 +1,4 @@
-# Empty Encore TS With GraphQL
+# Encore TS With GraphQL
 
 ## Developing locally
 

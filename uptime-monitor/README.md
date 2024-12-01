@@ -37,3 +37,14 @@ Now off you go into the clouds!
 ```bash
 encore test
 ```
+
+## Commands Summary
+
+| Command                  | Description                                             |
+| ------------------------ | ------------------------------------------------------- |
+| `npx prisma init`        | Initializes Prisma and sets up the schema.              |
+| `npx prisma migrate dev` | Applies migrations to the database.                     |
+| `npx prisma generate`    | Generates Prisma Client for database interaction.       |
+| `npm run generate`       | Runs GraphQL Code Generator to create type definitions. |
+| `npx prisma studio`      | Opens Prisma Studio to manage database data.            |
+| `encore run`             | Starts the Encore application locally.                  |
